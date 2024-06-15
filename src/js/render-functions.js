@@ -11,6 +11,7 @@ let gallery = new SimpleLightbox('.gallery a', {
 });
 
 const galleryContainer = document.querySelector('.gallery');
+const loader = document.querySelector('.loader');
 
 function imageTemplate(image) {
   return `<a href="${image.largeImageURL}" class="gallery-item">
@@ -57,4 +58,11 @@ export function showError(message) {
     iconUrl: closeIcon,
     iconColor: '#fff',
   });
+}
+export function showLoader() {
+  loader.style.display = 'block';
+}
+
+export function hideLoader() {
+  loader.style.display = 'none';
 }

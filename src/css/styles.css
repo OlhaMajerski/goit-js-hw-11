@@ -32,6 +32,17 @@ header {
   margin: 20px 0;
 }
 
+.loader .loader-icon {
+  display: inline-block;
+  width: 48px;
+  height: 48px;
+  border: 5px solid #fff;
+  border-bottom-color: #300aa2;
+  border-radius: 50%;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
 .gallery {
   display: flex;
   flex-wrap: wrap;
@@ -51,4 +62,13 @@ header {
 .gallery-item img {
   width: 100%;
   height: auto;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
