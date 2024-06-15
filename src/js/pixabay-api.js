@@ -1,4 +1,4 @@
-const API_KEY = '44388505-390a672441da303f6d08bc48a'; // Заміни на свій API ключ
+const API_KEY = '44388505-390a672441da303f6d08bc48a';
 
 export function getImages(query) {
   const BASE_URL = 'https://pixabay.com';

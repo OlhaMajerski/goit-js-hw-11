@@ -1,4 +1,4 @@
-import { getImages } from './pixabay-api.js';
+import { getImages } from './js/pixabay-api.js';
 import { renderImages, showError } from './render-functions.js';
 
 document.addEventListener('DOMContentLoaded', () => {
