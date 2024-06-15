@@ -1,5 +1,5 @@
 import { getImages } from './js/pixabay-api.js';
-import { renderImages, showError } from './render-functions.js';
+import { renderImages, showError } from './js/render-functions.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.querySelector('.search-form');
