@@ -13,22 +13,22 @@ let gallery = new SimpleLightbox('.gallery a', {
 const galleryContainer = document.querySelector('.gallery');
 const loader = document.querySelector('.loader');
 
+export function showLoader() {
+  loader.style.display = 'block';
+}
+
+export function hideLoader() {
+  loader.style.display = 'none';
+}
+
 function imageTemplate(image) {
   return `<a href="${image.largeImageURL}" class="gallery-item">
       <img src="${image.webformatURL}" alt="${image.tags}" loading="lazy" />
       <div class="info">
-        <p>
-          <b>Likes:</b> ${image.likes}
-        </p>
-        <p>
-          <b>Views:</b> ${image.views}
-        </p>
-        <p>
-          <b>Comments:</b> ${image.comments}
-        </p>
-        <p>
-          <b>Downloads:</b> ${image.downloads}
-        </p>
+        <p><b>Likes:</b> ${image.likes}</p>
+        <p><b>Views:</b> ${image.views}</p>
+        <p><b>Comments:</b> ${image.comments}</p>
+        <p><b>Downloads:</b> ${image.downloads}</p>
       </div>
     </a>`;
 }
@@ -36,7 +36,6 @@ function imageTemplate(image) {
 function imagesTemplate(images) {
   return images.map(imageTemplate).join('');
 }
-
 export function renderImages(images) {
   const markup = imagesTemplate(images);
   galleryContainer.innerHTML = markup;
@@ -45,7 +44,7 @@ export function renderImages(images) {
 
 export function showError(message) {
   iziToast.error({
-    message: message,
+    message,
     messageSize: '16',
     messageColor: '#fff',
     backgroundColor: '#ef4040',
@@ -58,11 +57,4 @@ export function showError(message) {
     iconUrl: closeIcon,
     iconColor: '#fff',
   });
-}
-export function showLoader() {
-  loader.style.display = 'block';
-}
-
-export function hideLoader() {
-  loader.style.display = 'none';
 }

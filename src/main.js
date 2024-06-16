@@ -8,13 +8,15 @@ import {
 
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.querySelector('.search-form');
+
   form.addEventListener('submit', event => {
     event.preventDefault();
-    const query = event.target.elements.query.value.trim();
+    const query = event.target.query.value.trim();
     if (!query) {
       showError('Please enter a search term.');
       return;
     }
+
     showLoader();
     getImages(query)
       .then(data => {
@@ -25,11 +27,13 @@ document.addEventListener('DOMContentLoaded', () => {
           );
         } else {
           renderImages(data.hits);
+          form.reset();
         }
       })
-      .catch(() => {
+      .catch(error => {
         hideLoader();
         showError('An error occurred while fetching images.');
+        console.error('Error fetching images:', error);
       });
   });
 });
